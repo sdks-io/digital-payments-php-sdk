@@ -1,0 +1,58 @@
+{
+    "name": "shell/digital-payments-sdk",
+    "description": "The APIs detailed within this SDK will enable Shell's Fleet Solutions Customers to digitalize Shell Card/s and use them to pay to refuel their vehicles at Shell Stations.",
+    "type": "library",
+    "keywords": [
+        "Shell",
+        "APIMatic",
+        "SDKs",
+        "APIs",
+        "DigitalPayments"
+    ],
+    "homepage": "https://www.shell.com/",
+    "license": [
+        "MIT"
+    ],
+    "authors": [
+        {
+            "name": "developer sdksio",
+            "email": "developer+sdksio@apimatic.io"
+        }
+    ],
+    "support": {},
+    "require": {
+        "php": "^7.2 || ^8.0",
+        "ext-json": "*",
+        "apimatic/unirest-php": "^4.0.0",
+        "apimatic/core-interfaces": "~0.1.5",
+        "apimatic/core": "~0.3.9"
+    },
+    "require-dev": {
+        "squizlabs/php_codesniffer": "^3.5",
+        "phan/phan": "5.4.2",
+        "phpunit/phpunit": "^7.5 || ^8.5 || ^9.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "ShellEVLib\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "ShellEVLib\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": "phpunit",
+        "test-coverage": "phpunit --coverage-html=coverage",
+        "lint-src": "phpcs --standard=phpcs-ruleset.xml src/",
+        "lint-src-fix": "phpcbf --standard=phpcs-ruleset.xml src/",
+        "lint-tests": "phpcs --standard=phpcs-ruleset.xml tests/",
+        "lint-tests-fix": "phpcbf --standard=phpcs-ruleset.xml tests/",
+        "analyze": "phan --allow-polyfill-parser",
+        "lint": [
+            "@lint-src",
+            "@lint-tests"
+        ]
+    }
+}
