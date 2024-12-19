@@ -19,8 +19,8 @@
 | `siteAddress` | `?string` | Optional | - | getSiteAddress(): ?string | setSiteAddress(?string siteAddress): void |
 | `originalPrice` | `?float` | Optional | - | getOriginalPrice(): ?float | setOriginalPrice(?float originalPrice): void |
 | `discount` | `?float` | Optional | - | getDiscount(): ?float | setDiscount(?float discount): void |
-| `payment` | [`?FinaliseFuelingRequestPayment`](../../doc/models/finalise-fueling-request-payment.md) | Optional | - | getPayment(): ?FinaliseFuelingRequestPayment | setPayment(?FinaliseFuelingRequestPayment payment): void |
-| `products` | [`?(FinaliseFuelingRequestProductsItems[])`](../../doc/models/finalise-fueling-request-products-items.md) | Optional | - | getProducts(): ?array | setProducts(?array products): void |
+| `payment` | [`?Payment`](../../doc/models/payment.md) | Optional | - | getPayment(): ?Payment | setPayment(?Payment payment): void |
+| `products` | [`?(Product[])`](../../doc/models/product.md) | Optional | - | getProducts(): ?array | setProducts(?array products): void |
 | `mppTransactionId` | `?string` | Optional | - | getMppTransactionId(): ?string | setMppTransactionId(?string mppTransactionId): void |
 
 ## Example (as JSON)

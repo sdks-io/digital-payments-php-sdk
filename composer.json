@@ -20,26 +20,27 @@
         }
     ],
     "support": {},
+    "prefer-stable": false,
     "require": {
         "php": "^7.2 || ^8.0",
         "ext-json": "*",
         "apimatic/unirest-php": "^4.0.0",
         "apimatic/core-interfaces": "~0.1.5",
-        "apimatic/core": "~0.3.9"
+        "apimatic/core": "~0.3.13"
     },
     "require-dev": {
         "squizlabs/php_codesniffer": "^3.5",
-        "phan/phan": "5.4.2",
+        "phan/phan": "5.4.5",
         "phpunit/phpunit": "^7.5 || ^8.5 || ^9.5"
     },
     "autoload": {
         "psr-4": {
-            "ShellEVLib\\": "src/"
+            "ShellSmartPayAPILib\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "ShellEVLib\\Tests\\": "tests/"
+            "ShellSmartPayAPILib\\Tests\\": "tests/"
         }
     },
     "scripts": {
@@ -49,7 +50,7 @@
         "lint-src-fix": "phpcbf --standard=phpcs-ruleset.xml src/",
         "lint-tests": "phpcs --standard=phpcs-ruleset.xml tests/",
         "lint-tests-fix": "phpcbf --standard=phpcs-ruleset.xml tests/",
-        "analyze": "phan --allow-polyfill-parser",
+        "analyze": "phan --allow-polyfill-parser -p",
         "lint": [
             "@lint-src",
             "@lint-tests"

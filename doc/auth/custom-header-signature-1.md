@@ -9,7 +9,7 @@ Documentation for accessing and setting credentials for oAuthTokenPost.
 
 | Name | Type | Description | Setter | Getter |
 |  --- | --- | --- | --- | --- |
-| X-Apigee-Authorization | `string` | APIGEE access token ([How to obtain APIGEE access token?](page:guided-walkthrough/walkthrough1)) | `xApigeeAuthorization` | `getXApigeeAuthorization()` |
+| X-Apigee-Authorization | `string` | API Gateway Access token to be passed for Authentiction. The calling party’s OAuth 2.0/bearer token that’s required for using the Shell API Platform. ([How to obtain APIGEE access token?](page:guided-walkthrough/walkthrough1)) | `xApigeeAuthorization` | `getXApigeeAuthorization()` |
 
 
 
@@ -22,7 +22,7 @@ Documentation for accessing and setting credentials for oAuthTokenPost.
 You must provide credentials in the client as shown in the following code snippet.
 
 ```php
-$client = ShellEVClientBuilder::init()
+$client = ShellSmartPayAPIClientBuilder::init()
     ->oAuthTokenPostCredentials(
         OAuthTokenPostCredentialsBuilder::init(
             'X-Apigee-Authorization'

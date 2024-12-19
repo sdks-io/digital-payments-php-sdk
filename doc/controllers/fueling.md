@@ -96,14 +96,12 @@ $body = PrepareFuelingRequestBuilder::init(
     '9955',
     '1',
     'PARTNER_APP_EXAMPLE',
-    [
-        PaymentDetailsItemsBuilder::init(
-            'euroShell',
-            PaymentPropertiesBuilder::init(
-                '98e4ffd3-4146-4e94-8445-e02f4ce87a77'
-            )->build()
+    PaymentDetailsBuilder::init(
+        'euroShell',
+        PaymentPropertiesBuilder::init(
+            '98e4ffd3-4146-4e94-8445-e02f4ce87a77'
         )->build()
-    ]
+    )->build()
 )
     ->loyaltyDetails(
         [

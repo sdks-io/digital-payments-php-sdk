@@ -119,7 +119,7 @@ All request will return a 200 HTTP Response, but the Response will include detai
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
-| `data` | [`AroundLocationArrayDataItems[]`](../../doc/models/around-location-array-data-items.md) | Required | An array of station objects | getData(): array | setData(array data): void |
+| `data` | [`Datum[]`](../../doc/models/datum.md) | Required | An array of station objects | getData(): array | setData(array data): void |
 
 ## Example (as JSON)
 
@@ -143,28 +143,11 @@ All request will return a 200 HTTP Response, but the Response will include detai
         11,
         16
       ],
-      "loc": {
-        "street": "80/2 Outer Ring Road.",
-        "pc": "560037",
-        "city": "Bangalore",
-        "region": "Karnataka",
-        "country": "India",
-        "ccode": "IN"
-      },
       "mpp_station_id": "0",
       "double_site_id": "null",
       "telephone": "9611199089",
       "authorisation_code": "null",
-      "mp_preauth": 0,
-      "opening_hours": [
-        {
-          "Closing_From_Hours": "Closing_From_Hours6",
-          "Closing_From_Minutes": "Closing_From_Minutes4",
-          "Closing_To_Hours": "Closing_To_Hours4",
-          "Closing_To_Minutes": "Closing_To_Minutes4",
-          "From_Day": "From_Day2"
-        }
-      ]
+      "mp_preauth": 0
     }
   ]
 }
