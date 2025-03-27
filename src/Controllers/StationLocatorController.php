@@ -20,6 +20,7 @@ use ShellSmartPayAPILib\Exceptions\StationLocatorInternalServerErrorException;
 use ShellSmartPayAPILib\Exceptions\StationLocatorNotFoundException;
 use ShellSmartPayAPILib\Exceptions\StationLocatorUnauthorizedException;
 use ShellSmartPayAPILib\Models\AroundLocationArray;
+use ShellSmartPayAPILib\Models\TypeEnum;
 
 class StationLocatorController extends BaseController
 {
@@ -42,6 +43,17 @@ class StationLocatorController extends BaseController
      *        more amenities (e.g. Filter locations so that only those with a Toilet are returned).
      * @param string[]|null $countries This enables requestor to filter locations based on one or
      *        more Countries (i.e. by country codes).
+     * @param int|null $type All fuel stations are of at least one Type, indicating whether it is
+     *        Shell-branded or not, and if the station can be used by trucks. Note that a station
+     *        can have more than one Type (e.g. Shell retail sites (Type=0) can also be truck
+     *        friendly (Type=2)).
+     *
+     *        Type values are as follows:
+     *        * 0 = Shell owned/branded stations that are not also Type=2 or Type=3
+     *        * 1 = Partner stations accepting Shell Card
+     *        * 2 = Shell owned/branded stations that are truck friendly but not Type=3
+     *        * 3 = Shell owned/branded stations that are truck only
+     *        <br/>**When type is not provided, API will return type 0 and 2 only.**
      *
      * @return AroundLocationArray Response from the API call
      *
@@ -55,7 +67,8 @@ class StationLocatorController extends BaseController
         ?string $offerCode = null,
         ?int $n = null,
         ?array $amenities = null,
-        ?array $countries = null
+        ?array $countries = null,
+        ?int $type = null
     ): AroundLocationArray {
         $_reqBuilder = $this->requestBuilder(RequestMethod::GET, '/SiteData/v1/stations')
             ->auth('oAuthTokenPost')
@@ -67,7 +80,8 @@ class StationLocatorController extends BaseController
                 QueryParam::init('offer_code', $offerCode),
                 QueryParam::init('n', $n),
                 QueryParam::init('amenities', $amenities),
-                QueryParam::init('countries', $countries)
+                QueryParam::init('countries', $countries),
+                QueryParam::init('type', $type)->serializeBy([TypeEnum::class, 'checkValue'])
             );
 
         $_resHandler = $this->responseHandler()

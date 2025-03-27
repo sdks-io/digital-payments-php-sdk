@@ -39,6 +39,7 @@ class StationLocatorControllerTest extends BaseTestController
         $n = null;
         $amenities = null;
         $countries = null;
+        $type = null;
 
         // Perform API call
         $result = null;
@@ -51,7 +52,8 @@ class StationLocatorControllerTest extends BaseTestController
                 $offerCode,
                 $n,
                 $amenities,
-                $countries
+                $countries,
+                $type
             );
         } catch (Exceptions\ApiException $e) {
         }
